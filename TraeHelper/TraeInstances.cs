@@ -10,6 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace Flow.Plugin.TraeWorkspace.TraeHelper
 {
+    /// <summary>
+    /// Trae实例管理类
+    /// </summary>
     public static class TraeInstances
     {
         private static string _systemPath = string.Empty;
@@ -18,6 +21,9 @@ namespace Flow.Plugin.TraeWorkspace.TraeHelper
 
         private static readonly string _userLocalAppDataPath = Environment.GetEnvironmentVariable("LocalAppData");
 
+        /// <summary>
+        /// Trae实例列表
+        /// </summary>
         public static List<TraeInstance> Instances { get; set; } = new();
 
         private static BitmapImage Bitmap2BitmapImage(Bitmap bitmap)
@@ -110,6 +116,10 @@ namespace Flow.Plugin.TraeWorkspace.TraeHelper
             }
         }
 
+        /// <summary>
+        /// 加载Trae实例
+        /// </summary>
+        /// <param name="logInfo">日志记录委托</param>
         public static void LoadTraeInstances(Action<string, string> logInfo = null)
         {
             // 总是重新加载Trae实例，确保配置正确

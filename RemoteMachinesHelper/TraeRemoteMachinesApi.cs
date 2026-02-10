@@ -7,12 +7,21 @@ using Flow.Plugin.TraeWorkspace.SshConfigParser;
 
 namespace Flow.Plugin.TraeWorkspace.RemoteMachinesHelper
 {
+    /// <summary>
+    /// Trae远程机器API类
+    /// </summary>
     public class TraeRemoteMachinesApi
     {
+        /// <summary>
+        /// 初始化远程机器API
+        /// </summary>
         public TraeRemoteMachinesApi()
         {
         }
 
+        /// <summary>
+        /// 获取所有远程机器列表
+        /// </summary>
         public List<TraeRemoteMachine> Machines
         {
             get

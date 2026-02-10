@@ -10,10 +10,16 @@ using Microsoft.Data.Sqlite;
 
 namespace Flow.Plugin.TraeWorkspace.WorkspacesHelper
 {
+    /// <summary>
+    /// Trae工作区API类
+    /// </summary>
     public class TraeWorkspacesApi
     {
         private readonly string _pluginName = "Trae Workspaces";
 
+        /// <summary>
+        /// 初始化工作区API
+        /// </summary>
         public TraeWorkspacesApi()
         {
         }
@@ -23,6 +29,12 @@ namespace Flow.Plugin.TraeWorkspace.WorkspacesHelper
             Main._context?.API.LogInfo(_pluginName, message);
         }
 
+        /// <summary>
+        /// 解析VSCode URI
+        /// </summary>
+        /// <param name="uri">VSCode URI字符串</param>
+        /// <param name="traeInstance">Trae实例</param>
+        /// <returns>Trae工作区项</returns>
         public static TraeWorkspaceItem ParseVSCodeUri(string uri, TraeInstance traeInstance)
         {
             if (!string.IsNullOrEmpty(uri))
@@ -55,8 +67,14 @@ namespace Flow.Plugin.TraeWorkspace.WorkspacesHelper
             return null;
         }
 
+        /// <summary>
+        /// 工作区标签解析正则表达式
+        /// </summary>
         public Regex workspaceLabelParser = new Regex("(.+?)(\\[.+\\])");
 
+        /// <summary>
+        /// 获取所有工作区列表
+        /// </summary>
         public List<TraeWorkspaceItem> Workspaces
         {
             get

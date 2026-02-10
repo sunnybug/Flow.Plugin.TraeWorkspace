@@ -5,26 +5,58 @@ using System.Linq;
 
 namespace Flow.Plugin.TraeWorkspace.SshConfigParser
 {
+    /// <summary>
+    /// SSH配置类
+    /// </summary>
     public class SshConfig
     {
+        /// <summary>
+        /// SSH主机列表
+        /// </summary>
         public List<SshHost> Hosts { get; set; } = new();
     }
 
+    /// <summary>
+    /// SSH主机配置类
+    /// </summary>
     public class SshHost
     {
+        /// <summary>
+        /// 主机别名
+        /// </summary>
         public string Host { get; set; }
 
+        /// <summary>
+        /// 主机名或IP地址
+        /// </summary>
         public string HostName { get; set; }
 
+        /// <summary>
+        /// 用户名
+        /// </summary>
         public string User { get; set; }
 
+        /// <summary>
+        /// 端口号
+        /// </summary>
         public string Port { get; set; }
 
+        /// <summary>
+        /// 身份验证文件路径
+        /// </summary>
         public string IdentityFile { get; set; }
     }
 
+    /// <summary>
+    /// SSH配置文件解析器
+    /// </summary>
     public static class SshConfigParser
     {
+        /// <summary>
+        /// 解析SSH配置文件
+        /// </summary>
+        /// <param name="filePath">配置文件路径</param>
+        /// <returns>SSH配置对象</returns>
         public static SshConfig Parse(string filePath)
         {
             var config = new SshConfig();

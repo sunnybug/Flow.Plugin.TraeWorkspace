@@ -5,11 +5,19 @@ using Flow.Launcher.Plugin;
 
 namespace Flow.Plugin.TraeWorkspace
 {
+    /// <summary>
+    /// 设置视图控件
+    /// </summary>
     public partial class SettingsView : UserControl
     {
         private readonly PluginInitContext _context;
         private readonly Settings _settings;
 
+        /// <summary>
+        /// 初始化设置视图
+        /// </summary>
+        /// <param name="context">插件初始化上下文</param>
+        /// <param name="settings">插件设置</param>
         public SettingsView(PluginInitContext context, Settings settings)
         {
             InitializeComponent();

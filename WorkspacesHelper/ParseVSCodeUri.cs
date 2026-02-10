@@ -2,8 +2,16 @@ using System;
 
 namespace Flow.Plugin.TraeWorkspace.WorkspacesHelper
 {
+    /// <summary>
+    /// VSCode URI解析类
+    /// </summary>
     public class ParseVSCodeUri
     {
+        /// <summary>
+        /// 获取工作区类型信息
+        /// </summary>
+        /// <param name="uri">VSCode URI</param>
+        /// <returns>路径、机器名和工作区类型</returns>
         public static (string Path, string MachineName, TypeWorkspace? TypeWorkspace) GetTypeWorkspace(string uri)
         {
             if (uri.StartsWith("vscode-remote://"))

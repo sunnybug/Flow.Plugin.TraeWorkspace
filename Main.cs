@@ -12,18 +12,33 @@ using Flow.Plugin.TraeWorkspace.WorkspacesHelper;
 
 namespace Flow.Plugin.TraeWorkspace
 {
+    /// <summary>
+    /// 主插件类，实现Flow Launcher插件接口
+    /// </summary>
     public class Main : IPlugin, IPluginI18n, ISettingProvider, IContextMenu
     {
         internal static PluginInitContext _context { get; private set; }
         private static Settings _settings;
 
+        /// <summary>
+        /// 插件名称
+        /// </summary>
         public string Name => "Trae Workspaces";
+
+        /// <summary>
+        /// 插件描述
+        /// </summary>
         public string Description => "快速打开Trae最近工作区和远程SSH连接";
 
         private TraeInstance defaultInstance;
         private readonly TraeWorkspacesApi _workspacesApi = new();
         private readonly TraeRemoteMachinesApi _machinesApi = new();
 
+        /// <summary>
+        /// 处理查询请求
+        /// </summary>
+        /// <param name="query">查询参数</param>
+        /// <returns>查询结果列表</returns>
         public List<Result> Query(Query query)
         {
             var results = new List<Result>();
@@ -211,6 +226,10 @@ namespace Flow.Plugin.TraeWorkspace
             };
         }
 
+        /// <summary>
+        /// 初始化插件
+        /// </summary>
+        /// <param name="context">插件初始化上下文</param>
         public void Init(PluginInitContext context)
         {
             _context = context;
@@ -228,22 +247,43 @@ namespace Flow.Plugin.TraeWorkspace
             _context.API.LogInfo($"{Name}", "插件初始化完成");
         }
 
+        /// <summary>
+        /// 创建设置面板
+        /// </summary>
+        /// <returns>设置面板控件</returns>
         public Control CreateSettingPanel() => new SettingsView(_context, _settings);
 
+        /// <summary>
+        /// 文化信息改变时调用
+        /// </summary>
+        /// <param name="newCulture">新的文化信息</param>
         public void OnCultureInfoChanged(CultureInfo newCulture)
         {
         }
 
+        /// <summary>
+        /// 获取翻译后的插件标题
+        /// </summary>
+        /// <returns>插件标题</returns>
         public string GetTranslatedPluginTitle()
         {
             return Name;
         }
 
+        /// <summary>
+        /// 获取翻译后的插件描述
+        /// </summary>
+        /// <returns>插件描述</returns>
         public string GetTranslatedPluginDescription()
         {
             return Description;
         }
 
+        /// <summary>
+        /// 加载上下文菜单
+        /// </summary>
+        /// <param name="selectedResult">选中的结果</param>
+        /// <returns>上下文菜单项列表</returns>
         public List<Result> LoadContextMenus(Result selectedResult)
         {
             List<Result> results = new();
