@@ -23,5 +23,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Flow.Plugin.VSCodeWorkSpace
+        name: Flow.Plugin.TraeWorkspace
         path: Output/Release/
