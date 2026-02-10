@@ -4,7 +4,7 @@
     "Name": "Trae Workspaces",
     "Description": "快速打开Trae最近工作区和远程SSH连接",
     "Author": "sunnybug",
-    "Version": "1.0.0",
+    "Version": "1.0.2",
     "Language": "csharp",
     "Website": "https://github.com/sunnybug/Flow.Launcher.Plugin.TraeWorkspace",
     "IcoPath": "icon.png",
