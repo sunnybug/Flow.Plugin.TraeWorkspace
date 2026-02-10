@@ -1,0 +1,12 @@
+﻿{
+    "ID": "c3f99a820f028853e03b1e4cfd83ec0a",
+    "ActionKeyword": "trae",
+    "Name": "Flow.Plugin.TraeWorkspace",
+    "Description": "Flow Control插件，支持Trae快速打开最近列表/SSH",
+    "Author": "sunnybug",
+    "Version": "1.0.0",
+    "Language": "csharp",
+    "Website": "https://github.com/sunnybug/Flow.Launcher.Plugin.Flow.Plugin.TraeWorkspace",
+    "IcoPath": "icon.png",
+    "ExecuteFileName": "Flow.Launcher.Plugin.Flow.Plugin.TraeWorkspace.dll"
+}
