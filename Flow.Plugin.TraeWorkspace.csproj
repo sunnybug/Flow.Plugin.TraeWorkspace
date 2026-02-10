@@ -1,16 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <AssemblyName>Flow.Launcher.Plugin.Flow.Plugin.TraeWorkspace</AssemblyName>
-    <PackageId>Flow.Launcher.Plugin.Flow.Plugin.TraeWorkspace</PackageId>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <AssemblyName>Flow.Plugin.TraeWorkspace</AssemblyName>
+    <PackageId>Flow.Plugin.TraeWorkspace</PackageId>
     <Authors>sunnybug</Authors>
-    <PackageProjectUrl>https://github.com/sunnybug/Flow.Launcher.Plugin.Flow.Plugin.TraeWorkspace</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/sunnybug/Flow.Launcher.Plugin.Flow.Plugin.TraeWorkspace</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/sunnybug/Flow.Launcher.Plugin.TraeWorkspace</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sunnybug/Flow.Launcher.Plugin.TraeWorkspace</RepositoryUrl>
     <PackageTags>flow-launcher flow-plugin</PackageTags>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -22,10 +23,15 @@
     <Content Include="plugin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Flow.Launcher.Plugin" Version="4.4.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
   </ItemGroup>
 
 </Project>
