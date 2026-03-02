@@ -1,3 +1,4 @@
+using System.IO;
 using Flow.Plugin.TraeWorkspace.TraeHelper;
 
 namespace Flow.Plugin.TraeWorkspace.WorkspacesHelper
@@ -62,6 +63,29 @@ namespace Flow.Plugin.TraeWorkspace.WorkspacesHelper
         /// 关联的Trae实例
         /// </summary>
         public TraeInstance TraeInstance { get; set; }
+
+        /// <summary>
+        /// 检查工作区目录是否存在
+        /// </summary>
+        /// <returns>如果是本地工作区且目录存在返回true，远程/容器工作区总是返回true</returns>
+        public bool DirectoryExists()
+        {
+            if (TypeWorkspace != TypeWorkspace.Local)
+            {
+                // 远程和容器工作区无法本地检查，假设存在
+                return true;
+            }
+
+            try
+            {
+                return Directory.Exists(RelativePath);
+            }
+            catch
+            {
+                // 路径格式异常等情况，视为不存在
+                return false;
+            }
+        }
 
         /// <summary>
         /// 将工作区类型转换为字符串

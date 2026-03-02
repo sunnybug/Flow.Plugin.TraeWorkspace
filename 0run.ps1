@@ -3,8 +3,14 @@
 
 param(
     [ValidateSet("Debug", "Release")]
-    [string]$Configuration = "Debug"
+    [string]$Configuration = "Debug",
+    [switch]$Release
 )
+
+# 如果指定了 --release 参数，覆盖 Configuration
+if ($Release) {
+    $Configuration = "Release"
+}
 
 $ErrorActionPreference = "Stop"
 

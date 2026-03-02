@@ -210,7 +210,14 @@ namespace Flow.Plugin.TraeWorkspace.WorkspacesHelper
                     }
                 }
 
-                return workspaces;
+                // 过滤掉不存在的本地工作区目录
+                var filteredWorkspaces = workspaces
+                    .Where(w => w.DirectoryExists())
+                    .ToList();
+
+                LogInfo($"加载了 {workspaces.Count} 个工作区，过滤后剩余 {filteredWorkspaces.Count} 个（已移除 {workspaces.Count - filteredWorkspaces.Count} 个不存在的目录）");
+
+                return filteredWorkspaces;
             }
         }
     }
